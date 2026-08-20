@@ -1,0 +1,699 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Project {
+  id: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  problem?: string;
+  roleTitle: string;
+  roleBody: string;
+  approach: string[];
+  impact: string[];
+  technologies: string[];
+  previewLabel: string;
+  previewTitle: string;
+  previewNote: string;
+  previewPoints: string[];
+  previewClass: string;
+  links: {
+    label: string;
+    href: string;
+    external?: boolean;
+  }[];
+}
+
+interface ExperienceRole {
+  title: string;
+  company: string;
+  period: string;
+  startDate: string;
+  endDate?: string;
+  bullets: string[];
+}
+
+const projects: Project[] = [
+  {
+    id: "case-study-teoreler",
+    title: "Teoreler Platform Modernisation",
+    subtitle:
+      "Rebuilt a scientific modelling platform into a faster, decoupled React/Next.js product with API-driven workflows.",
+    summary:
+      "A platform modernisation project focused on separating frontend workflows from computational services and making a specialist product easier to evolve.",
+    problem:
+      "The existing platform had a tightly coupled MVC architecture, making it harder to maintain, extend and develop independently across frontend and computational services.",
+    roleTitle: "My role",
+    roleBody:
+      "Modernised the frontend and gateway layer, improving maintainability, usability and responsiveness.",
+    approach: [
+      "Migrated the legacy MVC frontend to a decoupled React/Next.js architecture.",
+      "Introduced REST APIs to separate frontend workflows from backend computational services.",
+      "Implemented a NestJS gateway for authentication, API orchestration and asynchronous simulations.",
+      "Built a metadata-driven UI architecture for configurable scientific workflows.",
+      "Improved responsiveness through asynchronous workflows and LTTB-based plot optimisation.",
+      "Used AI tools for scaffolding, debugging, testing and documentation while validating output quality."
+    ],
+    impact: [
+      "Accelerated feature delivery by 25%.",
+      "Reduced researcher onboarding time by 40%.",
+      "Improved maintainability through clearer frontend/backend boundaries.",
+      "Created reusable foundations for future workflow development."
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Node.js",
+      "NestJS",
+      "REST APIs",
+      "Vitest",
+      "React Testing Library",
+      "Docker",
+      "Git",
+      "AI-assisted development"
+    ],
+    previewLabel: "Platform snapshot",
+    previewTitle: "Decoupled workflows, async simulation flows and faster onboarding.",
+    previewNote: "A public PBPK platform with workflow-driven simulations, reusable UI foundations and a clearer product experience.",
+    previewPoints: ["React + Next.js", "NestJS gateway", "Async simulations"],
+    previewClass: "project-preview-teoreler",
+    links: [
+      {
+        label: "Visit Teoreler",
+        href: "https://www.teoreler.com/",
+        external: true
+      },
+      {
+        label: "Read case study",
+        href: "#case-study-teoreler"
+      }
+    ]
+  },
+  {
+    id: "case-study-design-system",
+    title: "Design System & Component Library",
+    subtitle:
+      "Built the reusable component system and workflow patterns that made Teoreler faster to extend and easier to maintain.",
+    summary:
+      "A design-system effort focused on consistency, accessibility and repeatable UI patterns for a workflow-heavy scientific product.",
+    problem:
+      "The platform needed consistent UI patterns and reusable frontend foundations. Many interface elements were being rebuilt repeatedly, slowing development and creating inconsistency.",
+    roleTitle: "What I built",
+    roleBody:
+      "A reusable UI foundation for complex workflow-heavy products, designed to reduce repeated implementation work and improve consistency across teams.",
+    approach: [
+      "Reusable layouts, forms, buttons, cards, navigation, tables and workflow components.",
+      "Component patterns for complex scientific workflows.",
+      "Accessible and intuitive user experiences for researchers.",
+      "Reusable UI foundations that reduced bespoke page development."
+    ],
+    impact: [
+      "Built 48+ reusable components.",
+      "Improved consistency across the platform.",
+      "Accelerated feature delivery by 25%.",
+      "Made future development easier and more maintainable."
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "CSS",
+      "SASS",
+      "Component architecture",
+      "Accessibility"
+    ],
+    previewLabel: "System snapshot",
+    previewTitle: "48+ components, shared patterns and cleaner delivery across teams.",
+    previewNote: "The design system powered Teoreler's workflows, forms, navigation and data-heavy interfaces across the platform.",
+    previewPoints: ["48+ components", "Accessible patterns", "Workflow UI"],
+    previewClass: "project-preview-system",
+    links: [
+      {
+        label: "See Teoreler",
+        href: "https://www.teoreler.com/",
+        external: true
+      },
+      {
+        label: "Read case study",
+        href: "#case-study-design-system"
+      }
+    ]
+  },
+  {
+    id: "case-study-financial-platforms",
+    title: "Financial Services React Platforms",
+    subtitle:
+      "Delivered and supported production React platforms for regulated financial products, releases and incident response.",
+    summary:
+      "Frontend delivery across regulated products, with emphasis on production reliability, shared patterns and release support.",
+    roleTitle: "My role",
+    roleBody:
+      "Worked across delivery, production support and frontend consistency for business-critical platforms serving exchange and clearing participants.",
+    approach: [
+      "Delivered React applications for financial market platforms serving NSE IFSC and Clearing participants.",
+      "Adapted shared UI patterns across React products.",
+      "Partnered with IT, Support and business teams on releases, hotfixes and feature delivery.",
+      "Supported AWS-to-on-prem infrastructure migration.",
+      "Resolved Sev1/2 production incidents.",
+      "Mentored junior engineers and conducted React and JavaScript technical interviews."
+    ],
+    impact: [
+      "Delivered production-facing financial applications.",
+      "Improved UI consistency across products.",
+      "Supported critical releases and production stability.",
+      "Built experience in regulated, business-critical environments."
+    ],
+    technologies: [
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Git",
+      "AWS",
+      "CI/CD",
+      "Production support"
+    ],
+    previewLabel: "Product snapshot",
+    previewTitle: "Production React interfaces for exchange and clearing participants.",
+    previewNote: "Public sites are available for the exchange and clearing platforms, while internal product work and incident support remained private.",
+    previewPoints: ["React delivery", "Release support", "Sev1/2 incidents"],
+    previewClass: "project-preview-finance",
+    links: [
+      {
+        label: "NSE IX",
+        href: "https://www.nseix.com/",
+        external: true
+      },
+      {
+        label: "NSE Clearing",
+        href: "https://www.nseicc.com/",
+        external: true
+      }
+    ]
+  }
+];
+
+const experience: ExperienceRole[] = [
+  {
+    title: "Full-Stack Developer",
+    company: "University of Liverpool",
+    period: "Nov 2024 - Present",
+    startDate: "2024-11",
+    bullets: [
+      "Modernised Teoreler by migrating a legacy MVC application to a decoupled React/Next.js architecture.",
+      "Integrated REST APIs to separate frontend workflows from backend services for independent development.",
+      "Implemented a NestJS gateway supporting authentication, API orchestration and asynchronous simulations.",
+      "Built a metadata-driven UI architecture for configurable workflows, reducing bespoke page development.",
+      "Established a reusable design system with 48+ components, accelerating feature delivery by 25%.",
+      "Improved responsiveness through asynchronous workflows and LTTB-based plot optimisation.",
+      "Used AI tools for scaffolding, debugging, testing and documentation while validating output quality."
+    ]
+  },
+  {
+    title: "Associate Systems Analyst",
+    company: "NSEIT",
+    period: "Jan 2022 - Jul 2023",
+    startDate: "2022-01",
+    endDate: "2023-07",
+    bullets: [
+      "Delivered React applications for financial market platforms serving NSE IFSC and Clearing participants.",
+      "Adapted shared UI patterns across React products to improve consistency, usability and maintainability.",
+      "Partnered with IT, Support and business teams on releases, hotfixes and feature delivery.",
+      "Supported AWS-to-on-prem infrastructure migration and resolved Sev1/2 production incidents.",
+      "Mentored junior engineers and conducted React and JavaScript technical interviews."
+    ]
+  },
+  {
+    title: "Systems Engineer",
+    company: "TCS",
+    period: "Jun 2019 - Jan 2022",
+    startDate: "2019-06",
+    endDate: "2022-01",
+    bullets: [
+      "Integrated React and GraphQL interfaces into legacy insurance applications.",
+      "Investigated and resolved L2 production incidents for Tata AIG's enterprise insurance platform.",
+      "Supported UAT environments and collaborated with QA, architects and client teams during releases.",
+      "Delivered enterprise insurance solutions supporting underwriting and policy workflows."
+    ]
+  }
+];
+
+const skillGroups = [
+  {
+    name: "Languages",
+    items: ["JavaScript", "TypeScript", "Python"]
+  },
+  {
+    name: "Frontend",
+    items: ["React", "Next.js", "Zustand", "HTML5", "CSS3", "SASS"]
+  },
+  {
+    name: "Backend",
+    items: ["Node.js", "NestJS", "Express.js", "REST APIs", "GraphQL"]
+  },
+  {
+    name: "Testing",
+    items: ["Vitest", "React Testing Library", "Jest"]
+  },
+  {
+    name: "Databases",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis"]
+  },
+  {
+    name: "Platforms",
+    items: ["Git", "Docker", "CI/CD", "AWS"]
+  },
+  {
+    name: "Architecture",
+    items: ["Frontend Architecture", "Design Systems", "Component Libraries", "Accessibility"]
+  },
+  {
+    name: "AI",
+    items: ["AI-assisted Development", "LLM-assisted Coding Workflows"]
+  }
+];
+
+const pageTitle = "Harshal Hattyangdi | Full-Stack Software Engineer";
+const pageDescription =
+  "Portfolio of Harshal Hattyangdi, a full-stack software engineer specialising in React, TypeScript, frontend architecture, design systems, and platform modernisation.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: "en-GB",
+      mainEntity: {
+        "@id": "#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "#person",
+      name: "Harshal Hattyangdi",
+      jobTitle: "Full-Stack Software Engineer",
+      email: "mailto:harshal.2797@gmail.com",
+      sameAs: ["https://www.linkedin.com/in/harshal-hattyangdi/"],
+      worksFor: {
+        "@type": "Organization",
+        name: "University of Liverpool"
+      },
+      knowsAbout: [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Node.js",
+        "NestJS",
+        "Frontend Architecture",
+        "Design Systems",
+        "Component Libraries",
+        "REST APIs",
+        "Accessibility"
+      ],
+      alumniOf: [
+        {
+          "@type": "CollegeOrUniversity",
+          name: "University of Liverpool"
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={structuredData}>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">Harshal Hattyangdi</a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-nav-toggle
+      >
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-site-nav>
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Harshal Hattyangdi</p>
+          <h1 id="hero-title">Full-Stack Software Engineer working across React, TypeScript and platform modernisation.</h1>
+          <p class="hero-intro">
+            I work on frontend systems, platform migrations and product interfaces for complex technical applications.
+          </p>
+          <p class="hero-meta">
+            Recent work spans research software, financial services and enterprise insurance, with an emphasis on maintainable architecture and clear user-facing systems.
+          </p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="/Harshal_MasterCV.pdf">Download CV</a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/harshal-hattyangdi/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button button-secondary" href="mailto:harshal.2797@gmail.com">Email</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Highlights">
+          <p class="panel-kicker">At a glance</p>
+          <dl class="hero-facts">
+            <div>
+              <dt>Focus</dt>
+              <dd>Frontend architecture, platform migration and reusable systems</dd>
+            </div>
+            <div>
+              <dt>Recent work</dt>
+              <dd>Teoreler modernisation, design systems and regulated React platforms</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>React, TypeScript, Next.js, Node.js, NestJS and testing tooling</dd>
+            </div>
+            <div>
+              <dt>Approach</dt>
+              <dd>Practical product engineering with an emphasis on maintainability and delivery</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="projects-title">Projects shaped by architecture, delivery and long-term maintainability.</h2>
+          <p>
+            A selection of work across scientific software, shared UI systems and regulated financial platforms.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          {projects.map((project) => (
+            <article class="project-card" aria-labelledby={`${project.id}-title`}>
+              <div class={`project-preview ${project.previewClass}`}>
+                <div class="project-preview-bar">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="project-preview-frame">
+                  <div class="project-preview-copy">
+                    <span>{project.previewLabel}</span>
+                    <strong>{project.previewTitle}</strong>
+                    <p>{project.previewNote}</p>
+                  </div>
+                  <ul class="project-preview-points">
+                    {project.previewPoints.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-content">
+                <div class="project-card-head">
+                  <p class="project-label">Selected work</p>
+                  <h3 id={`${project.id}-title`}>{project.title}</h3>
+                  <p class="project-summary">{project.summary}</p>
+                  <p>{project.subtitle}</p>
+                </div>
+
+                <div class="tag-list" aria-label={`${project.title} technologies`}>
+                  {project.technologies.map((item) => (
+                    <span>{item}</span>
+                  ))}
+                </div>
+
+                <div class="project-links" aria-label={`${project.title} links`}>
+                  {project.links.map((link) => (
+                    <a
+                      class="project-link"
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noreferrer" : undefined}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="case-studies" aria-labelledby="case-studies-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Case Studies</p>
+          <h2 id="case-studies-title">More detail on the thinking and implementation behind the projects.</h2>
+        </div>
+
+        <div class="case-study-stack">
+          {projects.map((project) => (
+            <article class="case-study-card" id={project.id} aria-labelledby={`${project.id}-case-study-title`}>
+              <div class="case-study-header">
+                <div>
+                  <p class="project-label">Case study</p>
+                  <h3 id={`${project.id}-case-study-title`}>{project.title}</h3>
+                </div>
+
+                <div class="case-study-links">
+                  {project.links
+                    .filter((link) => link.href !== `#${project.id}`)
+                    .map((link) => (
+                      <a
+                        class="project-link"
+                        href={link.href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noreferrer" : undefined}
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                </div>
+              </div>
+
+              <p class="case-study-summary">{project.subtitle}</p>
+
+              {project.problem && (
+                <div class="case-study-section">
+                  <h4>Problem</h4>
+                  <p>{project.problem}</p>
+                </div>
+              )}
+
+              <div class="case-study-section">
+                <h4>{project.roleTitle}</h4>
+                <p>{project.roleBody}</p>
+              </div>
+
+              <div class="case-study-section">
+                <h4>Technical approach</h4>
+                <ul>
+                  {project.approach.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="case-study-section">
+                <h4>Impact</h4>
+                <ul class="impact-list">
+                  {project.impact.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-title">Roles across research, financial services and insurance.</h2>
+          <p>
+            My work has focused on modernising legacy systems, delivering production-facing React products
+            and supporting teams operating in technical and regulated environments.
+          </p>
+        </div>
+
+        <div class="timeline">
+          {experience.map((role) => (
+            <article class="timeline-item">
+              <div class="timeline-meta">
+                <p>
+                  <time datetime={role.startDate}>{role.period.split(" - ")[0]}</time>
+                  {" - "}
+                  {role.endDate ? <time datetime={role.endDate}>{role.period.split(" - ")[1]}</time> : "Present"}
+                </p>
+              </div>
+              <div class="timeline-card">
+                <h3>{role.title}</h3>
+                <p class="timeline-company">{role.company}</p>
+                <ul>
+                  {role.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2 id="skills-title">Frontend-specialist breadth with full-stack delivery experience.</h2>
+        </div>
+
+        <div class="skills-grid">
+          {skillGroups.map((group) => (
+            <article class="skill-card">
+              <h3>{group.name}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="section-heading section-heading-tight">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">Engineering for products that need clarity, resilience and long-term maintainability.</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I'm a Full-Stack Software Engineer with 5+ years of experience building and modernising
+            enterprise web applications across research, financial services and insurance. My recent work
+            focuses on migrating legacy platforms to React/Next.js, integrating backend services through
+            REST APIs, building reusable component systems and improving complex technical workflows for
+            specialist users.
+          </p>
+          <p>
+            I'm especially interested in frontend architecture, design systems, developer experience,
+            and product interfaces that make complex systems easier to use.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Open to senior engineering roles across frontend, platform and full-stack teams.</h2>
+          <p>
+            If you're hiring for frontend platform work or full-stack product delivery, I'm happy to share
+            more detail on recent projects and implementation experience.
+          </p>
+        </div>
+
+        <ul class="contact-list" aria-label="Contact methods">
+          <li>
+            <span>Email</span>
+            <a href="mailto:harshal.2797@gmail.com">harshal.2797@gmail.com</a>
+          </li>
+          <li>
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/harshal-hattyangdi/" target="_blank" rel="noreferrer">
+              linkedin.com/in/harshal-hattyangdi
+            </a>
+          </li>
+          <li>
+            <span>CV</span>
+            <a href="/Harshal_MasterCV.pdf">Download CV</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.querySelector("[data-nav-toggle]");
+      const nav = document.querySelector("[data-site-nav]");
+      const links = nav?.querySelectorAll("a");
+
+      if (!toggle || !nav) return;
+
+      const closeNav = () => {
+        root.classList.remove("nav-open");
+        toggle.setAttribute("aria-expanded", "false");
+      };
+
+      const openNav = () => {
+        root.classList.add("nav-open");
+        toggle.setAttribute("aria-expanded", "true");
+      };
+
+      toggle.addEventListener("click", () => {
+        if (root.classList.contains("nav-open")) {
+          closeNav();
+        } else {
+          openNav();
+        }
+      });
+
+      links?.forEach((link) => {
+        link.addEventListener("click", closeNav);
+      });
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Node)) return;
+
+        if (nav.contains(target) || toggle.contains(target)) {
+          return;
+        }
+
+        closeNav();
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeNav();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 720) {
+          closeNav();
+        }
+      });
+    })();
+  </script>
+</BaseLayout>
